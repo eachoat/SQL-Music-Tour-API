@@ -14,7 +14,7 @@ events.get('/', async (req, res) => {
 })
 
 // Show Route: FIND A SPECIFIC Event
-events.get('/:id', async (req, res) => {
+events.get('/:name', async (req, res) => {
     try {
         const foundEvent = await Event.findOne({
             where: { event_id: req.params.id }

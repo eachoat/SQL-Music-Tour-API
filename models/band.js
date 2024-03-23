@@ -1,9 +1,23 @@
 // DEPENDENCIES
 const { Sequelize, DataTypes,  Model } = require('sequelize')
+module.exports= (Sequelize, DataTypes)
 
 
 // MODEL
-class Band extends Model{}
+class Band extends Model {
+    static associate({ MeetGreet }) {
+      // meet and greets 
+      Band.hasMany(MeetGreet, {
+        foreignKey: "band_id",
+        as: "meet_greets"
+      })
+      Band.hasMany(SetTime, {
+        foreignKey: "band_id",
+        as: "set_time"
+      })
+  }
+  
+}
 Band.init({
     id: { 
         type: DataTypes.INTEGER, 

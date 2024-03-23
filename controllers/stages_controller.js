@@ -14,7 +14,7 @@ stages.get('/', async (req, res) => {
 })
 
 // Show Route: FIND A SPECIFIC Stage
-stages.get('/:id', async (req, res) => {
+stages.get('/:name', async (req, res) => {
     try {
         const foundStage = await Stage.findOne({
             where: { stage_id: req.params.id }
